@@ -1,8 +1,4 @@
-<?php 
-
-// tweede kolom velden huisnummer - postcode - adres - woonplaats - telefoonnummer - emailadres
-
-echo '<form class = "form-horizontal" action = "/action_page.php"> 
+<form class = "form-horizontal" action = "/action_page.php"> 
     <div class = "form-group">
         <label class = "control-label col-sm-6" for = "HouseNumber">Huisnummer</label>
         <div class = "col-sm-6">
@@ -39,5 +35,4 @@ echo '<form class = "form-horizontal" action = "/action_page.php">
             <input type = "email" class = "form-control" id = "EmailAddress" name = "EmailAddress">
         </div>
     </div>
-</form>';
-?>
+</form>

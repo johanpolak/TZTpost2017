@@ -1,9 +1,4 @@
-<?php 
-
-/* eerste kolom velden voornaam - tussenvoegsel(s) - achternaam - geslacht - 
-geb.datum - wachtwoord - herhaal wachtwoord */
-
-echo '<div class="form-group">
+<div class="form-group">
     <label class="control-label col-sm-6" for="FirstName">Voornaam</label>
     <div class="col-sm-6">
         <input type="text" class="form-control" id="FirstName" name="FirstName">
@@ -47,6 +42,4 @@ echo '<div class="form-group">
     <div class="col-sm-6">          
         <input type="password" class="form-control" id="RepeatPassword" name="RepeatPassword">
     </div>
-</div>'
-
-?>
+</div>
