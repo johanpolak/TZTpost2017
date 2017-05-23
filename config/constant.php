@@ -1,6 +1,6 @@
 <?php
 // main folder
-define ('URL', '/TZT-Post/');
+define ('URL', '/TZTpost2017/');
 
 // database settings
 define('DB_TYPE', 'mysql');

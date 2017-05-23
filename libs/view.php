@@ -32,5 +32,7 @@ class View {
     public function template($name){
         include_once 'view/template/' . $name . '.php';
     }
+    
+    
 }
 

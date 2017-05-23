@@ -85,11 +85,9 @@
     </div>
 </div>
 
-<div class="">          
-    <button type="button" class="btn btn-default Cancel">Annuleren</button>
-</div>
-<div class="">          
+    
+    <button type="button" class="btn btn-default Cancel">Annuleren</button>     
     <button type="button" class="btn btn-default Registrate">Registreren</button>
-</div>
+
 
 

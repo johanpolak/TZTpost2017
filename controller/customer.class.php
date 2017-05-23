@@ -7,14 +7,12 @@ class Customer extends Controller{
         $this->view->title = 'TZT-Post'; // naam title
     }
 
-    /*public function index(){
+    public function index(){
         $this->view->render(get_class($this), 'index');
-    }*/
+    }
     
     public function create(){
-        if($_POST){
-            //ss
-        }
+       
         $this->view->render(get_class($this), 'create');
     }
     
