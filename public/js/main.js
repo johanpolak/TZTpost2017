@@ -1,5 +1,5 @@
 $(function(){
-    if($(form)){
-        $(form).validate();
+    if($('form')){
+        $('form').validate();
     }
 });

@@ -12,9 +12,7 @@ class Customer extends Controller{
     }
     
     public function create(){
-        if($_POST){
-            //ss
-        }
+       
         $this->view->render(get_class($this), 'create');
     }
     

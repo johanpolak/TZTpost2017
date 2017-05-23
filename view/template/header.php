@@ -7,6 +7,12 @@
         <script src="<?php echo URL ?>public/js/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
         <script src="<?php echo URL ?>public/js/bootstrap.min.js" type="text/javascript"></script>
         <link rel="stylesheet" href="<?php echo URL ?>public/css/style.css" type="text/css"/>
+        <script src="<?php echo URL ?>public/js/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
+        <script src="<?php echo URL ?>public/js/jquery.validate.js" type="text/javascript"></script>
+        <script src="<?php echo URL ?>public/js/validate.js" type="text/javascript"></script>
+        <script src="<?php echo URL ?>public/js/main.js" type="text/javascript"></script>
+        
+        
         <title>
             <?php echo $this->title; ?>
         </title>
