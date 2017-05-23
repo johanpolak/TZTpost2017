@@ -1,6 +1,6 @@
 <?php
 
-class Customer extends Controller{
+class Courier extends Controller{
 
     public function __construct(){
 	parent::__construct();

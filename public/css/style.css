@@ -1,0 +1,37 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18-mei-2017, 22:25:11
+    Author     : Johan Polak
+*/
+
+.control-label{
+    text-align: left !important;
+}
+
+.sub-header{
+    padding: 0 0 15px 15px;
+    font-size:25px;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid black;
+}
+
+.TermsAndConditions{
+    padding-left: 15px;
+}
+
+.Registrate, .Cancel{
+    width: auto;
+    min-width: 100px;
+    float: right;
+    margin: 5px;
+}
+

@@ -3,9 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <link href="public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <script src="public/js/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
-        <script src="public/js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="<?php echo URL ?>public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="<?php echo URL ?>public/js/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
+        <script src="<?php echo URL ?>public/js/bootstrap.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="<?php echo URL ?>public/css/style.css" type="text/css"/>
         <title>
             <?php echo $this->title; ?>
         </title>
@@ -21,7 +22,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">TZT-Post</a>
+                    <a class="navbar-brand" href="<?php echo URL ?>index">TZT-Post</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -32,7 +33,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
+                                <li><a href="<?php echo URL ?>Customer/create">Create account customer</a></li>
                                 <li><a href="#">Another action</a></li>
                                 <li><a href="#">Something else here</a></li>
                                 <li role="separator" class="divider"></li>
