@@ -1,20 +1,14 @@
 <div class="form-group">
     <label class="control-label col-sm-6" for="FirstName">Voornaam</label>
-    <div class="col-sm-6">
-        <input type="text" class="form-control" id="FirstName" name="FirstName">
-    </div>
+    <?php $this->input('text', 'FirstName', false, null, true);?>
 </div>
 <div class="form-group">
     <label class="control-label col-sm-6" for="pwd">Tussenvoegsel(s)</label>
-    <div class="col-sm-6">          
-        <input type="text" class="form-control" id="Insertion" name="Insertion">
-    </div>
+    <?php $this->input('text', 'Insertion', false);?>
 </div>
 <div class="form-group">        
     <label class="control-label col-sm-6" for="LastName">Achternaam</label>
-    <div class="col-sm-6">          
-        <input type="text" class="form-control" id="LastName" name="LastName">
-    </div>
+    <?php $this->input('text', 'LastName', false, null, true);?>
 </div>
 <div class="form-group">
     <label class="control-label col-sm-6" for="Gender">Geslacht</label>
@@ -27,19 +21,13 @@
 </div>
 <div class="form-group">
     <label class="control-label col-sm-6" for="BirthDate">Geboortedatum</label>
-    <div class="col-sm-6">          
-        <input type="date" class="form-control" id="BirthDate" name="BirthDate">
-    </div>
+    <?php $this->input('date', 'BirthDate', false, null, true);?>
 </div>
 <div class="form-group">        
-    <label class="control-label col-sm-6" for="LastName">Wachtwoord</label>
-    <div class="col-sm-6">          
-        <input type="password" class="form-control" id="Password" name="Password">
-    </div>
+    <label class="control-label col-sm-6" for="Password">Wachtwoord</label>
+    <?php $this->input('password', 'Password', false, null, true);?>
 </div>
 <div class="form-group">        
-    <label class="control-label col-sm-6" for="LastName">Herhaal wachtwoord</label>
-    <div class="col-sm-6">          
-        <input type="password" class="form-control" id="RepeatPassword" name="RepeatPassword">
-    </div>
+    <label class="control-label col-sm-6" for="RepeatPassword">Herhaal wachtwoord</label>
+    <?php $this->input('password', 'RepeatPassword', false, null, true);?>
 </div>

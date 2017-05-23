@@ -1,15 +1,11 @@
-<form class = "form-horizontal" action = "/action_page.php"> 
+<div class = "form-horizontal"> 
     <div class = "form-group">
         <label class = "control-label col-sm-6" for = "HouseNumber">Huisnummer</label>
-        <div class = "col-sm-6">
-            <input type = "text" class = "form-control" id = "HouseNumber" name = "HouseNumber">
-        </div>
+        <?php $this->input('text', 'HouseNumber', false, null, true);?>
     </div>
     <div class = "form-group">
         <label class = "control-label col-sm-6" for = "ZipCode">Postcode</label>
-        <div class = "col-sm-6">
-            <input type = "text" class = "form-control" id = "ZipCode" name = "ZipCode">
-        </div>
+        <?php $this->input('text', 'ZipCode', false, null, true);?>
     </div>
     <div class = "form-group">
         <label class = "control-label col-sm-6" for = "Address">Adres</label>
@@ -25,14 +21,10 @@
     </div>
     <div class = "form-group">
         <label class = "control-label col-sm-6" for = "PhoneNumber">Telefoonnummer</label>
-        <div class = "col-sm-6">
-            <input type = "text" class = "form-control" id = "PhoneNumber" name = "PhoneNumber">
-        </div>
+        <?php $this->input('text', 'PhoneNumber', false);?>
     </div>
     <div class = "form-group">
         <label class = "control-label col-sm-6" for = "EmailAddress">Emailadres</label>
-        <div class = "col-sm-6">
-            <input type = "email" class = "form-control" id = "EmailAddress" name = "EmailAddress">
-        </div>
+        <?php $this->input('email', 'EmailAddress', false, null, true);?>
     </div>
-</form>
+</div>
