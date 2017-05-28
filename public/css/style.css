@@ -24,11 +24,11 @@ hr {
     border-top: 1px solid black;
 }
 
-.TermsAndConditions{
+.CheckboxWithPaddingLeft{
     padding-left: 15px;
 }
 
-.Registrate, .Cancel{
+.Registrate, .Cancel, .BottomButton{
     width: auto;
     min-width: 100px;
     float: right;
@@ -55,4 +55,11 @@ hr {
     display: block;
 }
 
+.NoPadding {
+    padding-left: 3px;
+    padding-right: 3px;
+}
 
+.HoverNoLine:hover{
+    font-style: normal;
+}

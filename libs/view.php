@@ -33,6 +33,10 @@ class View {
         include_once 'view/template/' . $name . '.php';
     }
     
+    public function addInfoTooltip($title){
+        echo '<a data-toggle="tooltip" class="HoverNoLine" title="' . $title . '"><span class="glyphicon glyphicon-info-sign"></span></a>';
+    }
+    
     
 }
 
