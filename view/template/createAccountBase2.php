@@ -10,13 +10,13 @@
     <div class = "form-group">
         <label class = "control-label col-sm-6" for = "Address">Adres</label>
         <div class = "col-sm-6">
-            <input type = "text" class = "form-control" id = "Adress disabledInput" name = "Address" disabled>
+        <?php $this->input('text', 'Adress', false, null, true); ?>
         </div>
     </div>
     <div class = "form-group">
         <label class = "control-label col-sm-6" for = "City">Woonplaats</label>
         <div class = "col-sm-6">
-            <input type = "text" class = "form-control" id = "City disabledInput" name = "City" disabled>
+            <?php $this->input('text', 'City', false, null, true); ?>
         </div>
     </div>
     <div class = "form-group">

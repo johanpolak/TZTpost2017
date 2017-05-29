@@ -13,9 +13,26 @@ class Courier extends Controller{
     
     public function create(){
         if($_POST){
-            //ss
+            
+
+            exit;
         }
         $this->view->render(get_class($this), 'create');
     }
+    /*
+    private function checkVars($data){
+        $data["FirstName"];
+        $data["Insertion"];
+        $data["LastName"];
+        $data["Gender"];
+        $data["BirthDate"];
+        $data["Password"];
+        $data["RepeatPassword"];
+        $data["HouseNumber"];
+        $data["ZipCode"];
+        $data["PhoneNumber"];
+        $data["EmailAddress"];
+        $data["AccountNumber"];
+    }*/
     
 }

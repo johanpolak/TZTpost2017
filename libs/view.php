@@ -13,7 +13,7 @@ class View {
     }
 
     public function input($type, $name, $error, $erromssg = null, $required = false, $placeholder = false, $class = false) {
-        echo    '<div class = "col-sm-6 ' . (($error) ? 'has-error' : '') . '">
+        echo    '<div class = "col-sm-6 ' . (($error) ? '' : 'has-error') . '">
                     <input type="'.$type.'" class="form-control ' . (($class) ? $class : '') . '" id="'.$name.'" name="'.$name.'" placeholder="'.$placeholder.'" '.(($required) ? $class : '').'aria-required="true" aria-describedby="'.$name.'-error">
                     '. (($error) ? '<em id = "'.$name.'-error" class="error help-block">'. $erromssg .'</em>' : '') .'
                 </div>';
