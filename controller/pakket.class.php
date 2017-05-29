@@ -1,6 +1,6 @@
 <?php
 
-class Customer extends Controller{
+class Pakket extends Controller{
 
     public function __construct(){
 	parent::__construct();
@@ -8,12 +8,13 @@ class Customer extends Controller{
     }
 
     public function index(){
-        $this->view->check = array();
         $this->view->render(get_class($this), 'index');
     }
     
     public function create(){
-        var_dump($_POST);
+        if($_POST){
+            //ss
+        }
         $this->view->render(get_class($this), 'create');
     }
     
