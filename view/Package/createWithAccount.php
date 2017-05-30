@@ -6,7 +6,7 @@
             </div>
             <div class=" col-sm-12 col-md-6 form-horizontal">
                 <div class="form-group">
-                    <label class="control-label col-sm-6" for="Mass">Gewicht (kg) 
+                    <label class="control-label col-sm-6" for="Mass">Gewicht (kg)
                         <?php $this->addInfoTooltip("Maximaal 25 kg"); ?>
                     </label>
                     <div class = "col-sm-6">

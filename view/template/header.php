@@ -4,16 +4,18 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <link href="<?php echo URL ?>public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <script src="<?php echo URL ?>public/js/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
-        <script src="<?php echo URL ?>public/js/bootstrap.min.js" type="text/javascript"></script>
         <link rel="stylesheet" href="<?php echo URL ?>public/css/style.css" type="text/css"/>
-        <script src="<?php echo URL ?>public/js/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
+        <script src="<?php echo URL ?>public/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script src="<?php echo URL ?>public/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="<?php echo URL ?>public/js/jquery.validate.js" type="text/javascript"></script>
         <script src="<?php echo URL ?>public/js/validate.js" type="text/javascript"></script>
         <script src="<?php echo URL ?>public/js/main.js" type="text/javascript"></script>
-        <title>
-            <?php echo $this->title; ?>
-        </title>
+        <?php if(isset($this->js)){
+            foreach($this->js as $key => $value){
+                echo '<script src="' . URL . 'public/js/' . $value . '.js" type="text/javascript"/></script>';
+            }
+        } ?>
+        <title>TZT-Post</title>
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -39,9 +41,8 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo URL ?>Customer/create">Aanmaken account klant</a></li>
-                                <li><a href="<?php echo URL ?>Courier/create">Aanmaken account koerier</a></li>
-                                <li><a href="<?php echo URL ?>Package/create">Aanmelden pakket</a></li>
+                                <li><a href="<?php echo URL ?>Customer/create">Create account customer</a></li>
+                                <li><a href="<?php echo URL ?>Courier/create"">Create account courier</a></li>
                                 <li><a href="#">Something else here</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">Separated link</a></li>
@@ -57,14 +58,14 @@
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <?php
-                        if ($_SESSION) {
-                            echo '<li><a href="' . URL . 'login/uitloggen">Uitloggen</a></li>';
+                        <?php 
+                        if(isset($_SESSION['ID']) && $_SESSION['ID'] != null ){
+                            echo '<li><a href="'. URL .'authentication/logout">Uitloggen</a></li>';
                         } else {
-                            echo '<li><a href="' . URL . 'login">Login</a></li>';
+                            echo '<li><a href="'. URL .'authentication/login">Login</a></li>';
                         }
                         ?>
-
+                        
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
