@@ -1,4 +1,4 @@
-<form action="create.php" method="post" enctype="multipart/form-data">
+<form action="<?php echo $this->action ?>" method="post" enctype="multipart/form-data">
     <div id="personalia" class="col-sm-12">
         <div class="sub-header">
             Persoonsgegevens
@@ -9,8 +9,8 @@
                     <label class="control-label col-sm-6" for="AccountType">Accounttype</label>
                     <div class="col-sm-6">
                         <select class="form-control" name="AccountType">
-                            <option value="Private">Particulier</option>
-                            <option value="Business">Zakelijk</option>
+                            <option value="0">Particulier</option>
+                            <option value="1">Zakelijk</option>
                         </select>
                     </div>
                 </div>
@@ -31,15 +31,15 @@
         <div class="col-sm-6">
             <div class="form-horizontal">
                 <div class="form-group">
-                    <label class="control-label col-sm-6" for="CompanyName">Bedrijfsnaam</label>
+                    <label class="control-label col-sm-6">Bedrijfsnaam</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="CompanyName" name="CompanyName">
+                        <?php $this->input('text', 'CompanyName', (isset($this->check[16]) ? $this->check[16] : true), $erromssg = null, false, (isset($this->data['CompanyName']) ? $this->data['CompanyName'] : null), $class = false) ?>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-6" for="KvKNumber">KvK nummer</label>
-                    <div class="col-sm-6">          
-                        <input type="text" class="form-control" id="KvKNumber" name="KvKNumber">
+                    <div class="col-sm-6">
+                        <?php $this->input('text', 'KvKNumber', (isset($this->check[17]) ? $this->check[17] : true), $erromssg = null, $required = false, (isset($this->data['KvKNumber']) ? $this->data['KvKNumber'] : null), $class = false) ?>
                     </div>
                 </div>
                 <div class="form-group">        
@@ -73,7 +73,7 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-6" for="AccountNumber">Rekeningnummer</label>
-                    <?php $this->input('text', 'AccountNumber', false, null, true);?>
+                    <?php $this->input('text', 'AccountNumber', (isset($this->check[19]) ? $this->check[19] : true), $erromssg = null, $required = false, (isset($this->data['AccountNumber']) ? $this->data['AccountNumber'] : null), $class = false) ?>
                 </div>
                 <div class="form-group">
                     <div class="checkbox TermsAndConditions">
@@ -87,6 +87,6 @@
         <button type="button" class="btn btn-default Cancel">Annuleren</button>
     </div>
     <div class="">          
-        <button type="button" class="btn btn-default Registrate">Registreren</button>
+        <input type="submit" class="btn btn-default Registrate">Registreren</button>
     </div>
 </form>

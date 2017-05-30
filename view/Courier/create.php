@@ -66,7 +66,7 @@
             <div class="form-horizontal">
                 <div class="form-group">
                     <label class="control-label col-sm-6" for="AccountNumber">Rekeningnummer</label>
-                    <?php $this->input('text', 'AccountNumber', false, null, true); ?>
+                    <?php $this->input('text', 'AccountNumber', (isset($this->check[19]) ? $this->check[19] : true), 'Vul een geldig IBAN nummer in!', true, (isset($this->data['AccountNumber']) ? $this->data['AccountNumber'] : null), $class = false) ?>
                 </div>
                 <div class="form-group">
                     <div class="checkbox TermsAndConditions">

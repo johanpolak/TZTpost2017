@@ -14,13 +14,13 @@ class Authentication extends Controller {
             if ($this->checkInput($_POST['email'], "E") &&
                     isset($_POST['password']) && trim($_POST['password']) != '') {
                 try {
-                    $email = $this->test_input($_POST['email']);
+                    $email = $this->test_input(strtolower($_POST['email']));
                     $password = $this->test_input($_POST['password']);
                     //initialisatie
                     $maxAttempts = 3; //pogingen binnen aantal minuten (zie volgende)
                     $attemptsTime = 5; //tijd waarin pogingen gedaan mogen worden (in minuten, wil je dat in seconden e.d. met je de query aanpassen)
                     //ophalen userID, salt
-                    $check = $this->model->getId($_POST['email']);
+                    $check = $this->model->getId($email);
 
                     //check of email bestaat
                     if (count($check['id']) <= 0) {
@@ -30,12 +30,11 @@ class Authentication extends Controller {
                     } else {
                         $password = hash('sha512', $check['salt'] . $password);
                     }
-                    
                     //check ww en email
                     $user = $this->model->checkUser($email, $password);
 
                     //ophalen inlogpogingen, alleen laatste vijf minuten
-                    $tries = $this->model->checkTries($check['id'], $attemptsTime, $maxAttempts);
+                    $tries = $this->model->checkTries($email, $attemptsTime, $maxAttempts);
                     
                     if (count($user) == 1 && count($tries) == 0) {
                         //update salt
@@ -48,7 +47,7 @@ class Authentication extends Controller {
                         header('location:' . URL . 'index');
                         die;
                     } else {
-                        $this->model->insertTry($userid[0][0], $_SERVER['REMOTE_ADDR']);
+                        $this->model->insertTry($user['id'], $_SERVER['REMOTE_ADDR']);
                         if (count($tries) > 0) {
                             $this->view->message('To many failed logins. You are blocked for 5 minutes.', false);
                         } else {
@@ -56,7 +55,7 @@ class Authentication extends Controller {
                         }
                     }
                 } catch (PDOException $e) {
-                    $this->view->message($e->getMessage(), false);
+                    //$this->view->message($e->getMessage(), false);
                             //oeps er is iets fout gegaan .. '
                 }
                 $this->pdo = NULL;
@@ -80,7 +79,7 @@ class Authentication extends Controller {
     
     public function logout() {
         Session::destroy();
-        $this->view->render('Content', "index");
+        $this->view->render('content', "index");
     }
 
 }

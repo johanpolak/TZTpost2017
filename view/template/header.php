@@ -10,6 +10,11 @@
         <script src="<?php echo URL ?>public/js/jquery.validate.js" type="text/javascript"></script>
         <script src="<?php echo URL ?>public/js/validate.js" type="text/javascript"></script>
         <script src="<?php echo URL ?>public/js/main.js" type="text/javascript"></script>
+        <?php if(isset($this->js)){
+            foreach($this->js as $key => $value){
+                echo '<script src="' . URL . 'public/js/' . $value . '.js" type="text/javascript"/></script>';
+            }
+        } ?>
         <title>TZT-Post</title>
     </head>
     <body>

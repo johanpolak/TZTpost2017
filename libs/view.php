@@ -12,10 +12,10 @@ class View {
                 </div>';
     }
 
-    public function input($type, $name, $error, $erromssg = null, $required = false, $placeholder = false, $class = false) {
+    public function input($type, $name, $error, $erromssg = null, $required = false, $value = false, $class = false, $attr = null) {
         echo    '<div class = "col-sm-6 ' . (($error) ? '' : 'has-error') . '">
-                    <input type="'.$type.'" class="form-control ' . (($class) ? $class : '') . '" id="'.$name.'" name="'.$name.'" placeholder="'.$placeholder.'" '.(($required) ? $class : '').'aria-required="true" aria-describedby="'.$name.'-error">
-                    '. (($error) ? '<em id = "'.$name.'-error" class="error help-block">'. $erromssg .'</em>' : '') .'
+                    <input type="'.$type.'" class="form-control ' . (($class) ? $class : '') . '" value="' . (($value) ? $value : '') .  '" id="'.$name.'" name="'.$name.'" '.(($required) ? $class : '').'aria-required="true" aria-describedby="'.$name.'-error" ' . (($attr) ? $attr : '') .'>
+                    '. (($error) ? '' : '<em id = "'.$name.'-error" class="error help-block">'. $erromssg .'</em>') .'
                 </div>';
     }
 
