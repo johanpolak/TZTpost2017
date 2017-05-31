@@ -5,11 +5,13 @@
         <meta name="viewport" content="width=device-width">
         <link href="<?php echo URL ?>public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="<?php echo URL ?>public/css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="<?php echo URL ?>public/css/business-frontpage.css" type="text/css"/>
         <script src="<?php echo URL ?>public/js/jquery-3.2.1.min.js" type="text/javascript"></script>
         <script src="<?php echo URL ?>public/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="<?php echo URL ?>public/js/jquery.validate.js" type="text/javascript"></script>
         <script src="<?php echo URL ?>public/js/validate.js" type="text/javascript"></script>
         <script src="<?php echo URL ?>public/js/main.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <?php if(isset($this->js)){
             foreach($this->js as $key => $value){
                 echo '<script src="' . URL . 'public/js/' . $value . '.js" type="text/javascript"/></script>';
@@ -18,8 +20,8 @@
         <title>TZT-Post</title>
     </head>
     <body>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
+        <nav class="navbar navbar-inverse">
+            <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -29,7 +31,9 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="<?php echo URL ?>index">
-                        <img src="<?php echo URL ?>public/css/tzt-post-logo.jpg" class="navbar-logo">
+                        <span class="home-link-icon">
+                            <i class="fa fa-home"></i>
+                        </span>
                     </a>
                 </div>
 
@@ -41,8 +45,9 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo URL ?>Customer/create">Create account customer</a></li>
-                                <li><a href="<?php echo URL ?>Courier/create"">Create account courier</a></li>
+                                <li><a href="<?php echo URL ?>customer/create">Create account customer</a></li>
+                                <li><a href="<?php echo URL ?>courier/create">Create account courier</a></li>
+                                <li><a href="<?php echo URL ?>package/create">Sign up package</a></li>
                                 <li><a href="#">Something else here</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">Separated link</a></li>
@@ -59,7 +64,7 @@
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <?php 
-                        if(isset($_SESSION['ID']) && $_SESSION['ID'] != null ){
+                        if(isset($_SESSION['ID']) && $_SESSION['ID'] != null){
                             echo '<li><a href="'. URL .'authentication/logout">Uitloggen</a></li>';
                         } else {
                             echo '<li><a href="'. URL .'authentication/login">Login</a></li>';

@@ -64,10 +64,23 @@ hr {
     font-style: normal;
 }
 
-.navbar-brand{
-    padding-top: 0;
+.DisabledInputPaddingBottom{
+    padding-bottom: 10px;
 }
 
-.navbar-logo{
-    height: 50px;
+.home-link-icon{
+    font-size: 30px;
+}
+
+.navbar-inverse{
+    margin-bottom: 0;
+    
+}
+
+.navbar{
+    border-radius: 0;
+}
+
+.navbar-brand{
+    padding: 9px 9px;
 }
