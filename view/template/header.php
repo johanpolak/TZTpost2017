@@ -3,13 +3,18 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <link href="<?php echo URL ?>public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="<?php echo URL ?>public/css/style.css" type="text/css"/>
-        <script src="<?php echo URL ?>public/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-        <script src="<?php echo URL ?>public/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="<?php echo URL ?>public/js/jquery.validate.js" type="text/javascript"></script>
-        <script src="<?php echo URL ?>public/js/validate.js" type="text/javascript"></script>
-        <script src="<?php echo URL ?>public/js/main.js" type="text/javascript"></script>
+        <link href="../../public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="../../public/css/style.css" type="text/css"/>
+        <script src="../../public/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script src="../../public/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../public/js/jquery.validate.js" type="text/javascript"></script>
+        <script src="../../public/js/validate.js" type="text/javascript"></script>
+        <script src="../../public/js/main.js" type="text/javascript"></script>
+        <?php if(isset($this->js)){
+            foreach($this->js as $key => $value){
+                echo '<script src="../../public/js/' . $value . '.js" type="text/javascript"/></script>';
+            }
+        } ?>
         <title>TZT-Post</title>
     </head>
     <body>
@@ -30,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">Link</a></li>
+                        <li><a href="/autentication/edit">Profiel</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -44,18 +49,12 @@
                             </ul>
                         </li>
                     </ul>
-                    <form class="navbar-form navbar-left">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
                     <ul class="nav navbar-nav navbar-right">
                         <?php 
                         if(isset($_SESSION['ID']) && $_SESSION['ID'] != null ){
-                            echo '<li><a href="'. URL .'authentication/logout">Uitloggen</a></li>';
+                            echo '<li><a href="/authentication/logout">Uitloggen</a></li>';
                         } else {
-                            echo '<li><a href="'. URL .'authentication/login">Login</a></li>';
+                            echo '<li><a href="/authentication/login">Login</a></li>';
                         }
                         ?>
                         

@@ -1,9 +1,9 @@
 $(function () {
-    $(document).on("keyup", "#huisnummer", function (event) {
+    $(document).on("keyup", "[name='huisnummer']", function (event) {
         checkVars(this.closest('form'));
     });
     
-    $(document).on("keyup", "#postcode", function (event) {
+    $(document).on("keyup", "[name='postcode']", function (event) {
         checkVars(this.closest('form'));
     });
 });
@@ -26,26 +26,24 @@ function postcodeApi(streetnumber, postcode) {
         dataType: "json",
         success: function (t) {
             if (t.status == "ok") {
-                $('#adres').val(t.details[0]['straat']);
-                $('#woonplaats').val(t.details[0]['plaats']);
-                $('#provincie').val(t.details[0]['provincie']);
-                $('#land').val('NEDERLAND');
-                //$('#Huisnummer').parent().removeClass('has-error has-feedback');
-                //$('#Postcode').parent().removeClass('has-error has-feedback');
+                $("#street").val(t.details[0]['straat']);
+                $("#city").val(t.details[0]['plaats']);
+                $("#state").val(t.details[0]['provincie']);
+                
+                $("#huisnummer").parent().removeClass('has-error has-feedback');
+                $("#postcode").parent().removeClass('has-error has-feedback');
             } else {
-                //$('#Huisnummer').parent().addClass('has-error has-feedback');
-                //$('#Postcode').parent().addClass('has-error has-feedback');
-                $('#adres').val('');
-                $('#woonplaats').val('');
-                $('#provincie').val('');
-                $('#land').val('');
+                $("#huisnummer").parent().addClass('has-error has-feedback');
+                $("#postcode").parent().addClass('has-error has-feedback');
+                $("#street").val('');
+                $("#city").val('');
+                $("#state").val('');
             }
         },
         error: function (t, o, n) {
-            $('#adres').val('');
-            $('#woonplaats').val('');
-            $('#provincie').val('');
-            $('#land').val('');
+            $("#street").val('');
+            $("#city").val('');
+            $("#state").val('');
         }
     });
 }

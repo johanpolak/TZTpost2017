@@ -1,5 +1,5 @@
 <div class="container">
-    <form>
+    <form method="post" action="/package/create">
         <div id="PackageData" class="col-sm-12">
             <div class="sub-header">
                 Pakketgegevens
@@ -9,9 +9,7 @@
                     <label class="control-label col-sm-6" for="Mass">Gewicht (kg) 
                         <?php $this->addInfoTooltip("Maximaal 25 kg"); ?>
                     </label>
-                    <div class = "col-sm-6">
-                        <input type="text" class="form-control" id="mass" name="mass">
-                    </div>
+                    <?php $this->input('number', 'Weight', true, 'Dit veld is verplicht!', true, (isset($this->data['Weight']) ? $this->data['Weight'] : null)); ?>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-6" for="Size">Afmeting (cm)
@@ -19,13 +17,13 @@
                     </label>
                     <div class = "col-sm-6">
                         <div class="col-xs-4 NoPadding">
-                            <input type="text" class="form-control col-sm-4" id="width" name="size" placeholder="Breedte">
+                            <input type="text" class="form-control col-sm-4" id="width" name="size[]" placeholder="Breedte">
                         </div>
                         <div class="col-xs-4 NoPadding">
-                            <input type="text" class="form-control col-sm-4" id="height" name="size" placeholder="Hoogte">
+                            <input type="text" class="form-control col-sm-4" id="height" name="size[]" placeholder="Hoogte">
                         </div>
                         <div class="col-xs-4 NoPadding">
-                            <input type="text" class="form-control col-sm-4" id="depth" name="size" placeholder="Diepte">
+                            <input type="text" class="form-control col-sm-4" id="depth" name="size[]" placeholder="Diepte">
                         </div>
                     </div>
                 </div>
@@ -38,37 +36,32 @@
             <div class="sub-header">
                 Afhalen
             </div>
-            <div class="form-group">
-                <div class="checkbox CheckboxWithPaddingLeft">
-                    <label><input type="checkbox" id="MyAddress" value="" onclick="document.getElementById('PickUpZipCode').disabled = this.checked; document.getElementById('PickUpHousenumber').disabled = this.checked;">Gebruik mijn adres als afhaaladres</label>
-                </div>
-            </div>
             <div class="form-horizontal">
                 <div class="form-group col-sm-6">
-                    <label class="control-label col-sm-6" for="PickUpZipCode">Postcode</label>
-                    <?php $this->input('text', 'PickUpZipCode', false, null, true); ?>
+                    <label class="control-label col-sm-6" for="From_Zipcode">From_Zipcode</label>
+                    <?php $this->input('text', 'From_Zipcode', true, 'Dit veld is verplicht!', true, (isset($this->data['From_Zipcode']) ? $this->data['From_Zipcode'] : null)); ?>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label class="control-label col-sm-6" for="PickUpHousenumber">Huisnummer</label>
-                    <?php $this->input('text', 'PickUpHousenumber', false, null, true); ?>
-                </div>
-            </div>
-            <div class="form-horizontal">
-                <div class="form-group col-sm-6">
-                    <div class="col-md-offset-6 col-md-6 col-sm-12">
-                        <input type="text" class="form-control" id="PickUpAdress disabledInput" name="PickUpAddress" placeholder="Adres" disabled>
-                    </div>
+                    <label class="control-label col-sm-6" for="From_Housenumber">From_Housenumber</label>
+                    <?php $this->input('text', 'From_Housenumber', true, 'Dit veld is verplicht!', true, (isset($this->data['From_Housenumber']) ? $this->data['From_Housenumber'] : null)); ?>
                 </div>
                 <div class="form-group col-sm-6">
-                    <div class="col-md-offset-6 col-md-6 col-sm-12">
-                        <input type="text" class="form-control" id="PickUpCity disabledInput" name="PickUpCity" placeholder="Plaats" disabled>
-                    </div>
+                    <label class="control-label col-sm-6" for="From_HouseNumberAddition">From_HouseNumberAddition</label>
+                    <?php $this->input('text', 'From_HouseNumberAddition', true, '', false, (isset($this->data['From_HouseNumberAddition']) ? $this->data['From_HouseNumberAddition'] : null)); ?>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-6" for="From_City">From_City</label>
+                    <?php $this->input('text', 'From_City', true, 'Dit veld is verplicht!', true, (isset($this->data['From_City']) ? $this->data['From_City'] : null)); ?>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-6" for="From_Street">From_Country</label>
+                    <?php $this->input('text', 'From_Street', true, 'Dit veld is verplicht!', true, (isset($this->data['From_Street']) ? $this->data['From_Street'] : null)); ?>
                 </div>
                 <div class="form-group col-sm-6">
                     <label class="control-label col-sm-6" for="PickUpDate">Datum
                         <?php $this->addInfoTooltip("Als het pakket voor 15:00 aangemeld is, kan het dezelfde dag nog opgehaald worden"); ?>
                     </label>
-                    <?php $this->input('date', 'PickUpDate', false, null, true); ?>
+                    <?php $this->input('date', 'PickUpDate', true, null, true); ?>
                 </div>
             </div>
         </div>
@@ -80,43 +73,38 @@
                 Bezorgen
             </div>
             <div class="form-horizontal col-sm-12 NoPadding">
-                <div class="form-group col-sm-6">
-                    <label class="control-label col-sm-6" for="Addressee">Geadresseerde</label>
-                    <?php $this->input('text', 'Addressee', false, null, true); ?>
-                </div>
-            </div>
-            <div class="form-horizontal">
-                <div class="form-group col-sm-6">
-                    <label class="control-label col-sm-6" for="DeliveryZipCode">Postcode</label>
-                    <?php $this->input('text', 'DeliveryZipCode', false, null, true); ?>
+                 <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-6" for="To_ZipCode">To_ZipCode</label>
+                    <?php $this->input('text', 'To_ZipCode', true, 'Dit veld is verplicht!', true, (isset($this->data['To_ZipCode']) ? $this->data['To_ZipCode'] : null)); ?>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label class="control-label col-sm-6" for="DeliveryHouseNumber">Huisnummer</label>
-                    <?php $this->input('text', 'DeliveryHousenumber', false, null, true); ?>
-                </div>
-            </div>
-            <div class="form-horizontal">
-                <div class="form-group col-sm-6">
-                    <div class="col-md-offset-6 col-md-6 col-sm-12">
-                        <input type="text" class="form-control" id="DeliveryAdress disabledInput" name="DeliveryAddress" placeholder="Adres" disabled>
-                    </div>
+                    <label class="control-label col-sm-6" for="To_HouseNumber">To_HouseNumber</label>
+                    <?php $this->input('text', 'To_HouseNumber', true, 'Dit veld is verplicht!', true, (isset($this->data['To_HouseNumber']) ? $this->data['To_HouseNumber'] : null)); ?>
                 </div>
                 <div class="form-group col-sm-6">
-                    <div class="col-md-offset-6 col-md-6 col-sm-12">
-                        <input type="text" class="form-control" id="DeliveryCity disabledInput" name="DeliveryCity" placeholder="Plaats" disabled>
-                    </div>
+                    <label class="control-label col-sm-6" for="To_HouseNumberAddition">To_HouseNumberAddition</label>
+                    <?php $this->input('text', 'To_HouseNumberAddition', true, '', false, (isset($this->data['To_HouseNumberAddition']) ? $this->data['To_HouseNumberAddition'] : null)); ?>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label class="control-label col-sm-6" for="DeliveryDate">Datum
-                        <?php $this->addInfoTooltip("Als het pakket voor 15:00 aangemeld is, kan het dezelfde dag nog bezorgd worden"); ?>
+                    <label class="control-label col-sm-6" for="To_City">To_City</label>
+                    <?php $this->input('text', 'To_City', true, 'Dit veld is verplicht!', true, (isset($this->data['To_City']) ? $this->data['To_City'] : null)); ?>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-6" for="To_Street">To_Street</label>
+                    <?php $this->input('text', 'To_Street', true, 'Dit veld is verplicht!', true, (isset($this->data['To_Street']) ? $this->data['To_Street'] : null)); ?>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-6" for="PickUpDate">Datum
+                        <?php $this->addInfoTooltip("Als het pakket voor 15:00 aangemeld is, kan het dezelfde dag nog opgehaald worden"); ?>
                     </label>
-                    <?php $this->input('date', 'DeliveryDate', false, null, true); ?>
+                    <?php $this->input('date', 'DeliveryDate', true, null, true); ?>
                 </div>
             </div>
         </div>
 
         <div class="">
-            <a href="" class="btn btn-default BottomButton" role="button">Naar betalen</a>
+            <input type="submit" value="Naar betalen" class="btn btn-default BottomButton"/>
+    
         </div>
         <div class="">
             <a href="<?php echo URL ?>index" class="btn btn-default BottomButton" role="button">Terug</a>
