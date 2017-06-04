@@ -63,3 +63,24 @@ hr {
 .HoverNoLine:hover{
     font-style: normal;
 }
+
+.DisabledInputPaddingBottom{
+    padding-bottom: 10px;
+}
+
+.home-link-icon{
+    font-size: 30px;
+}
+
+.navbar-inverse{
+    margin-bottom: 0;
+    
+}
+
+.navbar{
+    border-radius: 0;
+}
+
+.navbar-brand{
+    padding: 9px 9px;
+}

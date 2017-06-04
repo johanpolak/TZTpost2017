@@ -57,7 +57,7 @@ class Package extends Controller {
 
 //        To be used when login is possible:
 //        
-//        if($_SESSION) {
+//        if(isset($_SESSION['ID']) && $_SESSION['ID'] != null) {
 //            $this->view->render(get_class($this), 'createWithAccount');
 //        } else {
 //            $this->view->render(get_class($this), 'createWithoutAccount');
