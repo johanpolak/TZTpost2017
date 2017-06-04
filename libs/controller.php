@@ -26,7 +26,6 @@ class Controller {
 
     public function checkInput($data, $type) {
         $x = false;
-        $data = htmlspecialchars($data);
         switch ($type) {
             case "E"://email
                 $x = ((filter_var($data, FILTER_VALIDATE_EMAIL)) ? true : false);
@@ -39,15 +38,12 @@ class Controller {
                 $x = (preg_match($regex, $data) ? true : false);
                 break;
             case "I"://int
-                $x = is_int($data);
+                $x = ctype_digit($data);
                 break;
             case "D"://datum
-                try {
-                    new \DateTime($data);
-                    $x = true;
-                } catch (\Exception $e) {
-                    
-                }
+                date_default_timezone_set('Europe/Amsterdam');
+                $d = DateTime::createFromFormat('Y-m-d', $data);
+                $x = ($d && $d->format('Y-m-d') === $data); 
                 break;
             case "R":
                 if ($data != '' && !empty($data) && isset($data)) {

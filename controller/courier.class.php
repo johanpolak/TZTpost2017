@@ -27,6 +27,48 @@ class Courier extends Controller{
             }
         $this->view->render(get_class($this), 'create');
     }
+    
+    public function availability(){
+        //$this->view->data = $this->model->getAll($_SESSION['ID']);
+        $this->view->render(get_class($this), 'availability');
+    }
+    
+    public function add(){
+        if($_POST){
+            
+           $Structural = isset($_POST['Structural']) ? true : false;
+           $EverythingFromStation = isset($_POST['EverythingFromStation']) ? true : false;
+           $EverythingTraject = isset($_POST['EverythingTraject']) ? true : false;
+           $Structural = isset($_POST['Structural']) ? true : false;
+           $TravelDate = $_POST['TravelDate'];
+           $TravelType = $_POST['TravelType'];
+            /*
+array(7) {
+  ["From_idStation"]=&gt;
+  string(1) "1"
+  ["To_idStation"]=&gt;
+  string(1) "2"
+  ["EverythingFromStation"]=&gt;
+  string(0) ""
+  ["Structural"]=&gt;
+  string(0) ""
+  ["TravelDate"]=&gt;
+  string(10) "2017-06-09"
+  ["TravelType"]=&gt;
+  string(5) "Enkel"
+  ["EverythingTraject"]=&gt;
+  string(0) ""
+}
+
+
+    
+        
+             *              */
+            var_dump($_POST);
+        }
+        $this->view->render(get_class($this), 'add');
+    }
+    
     private function checkVars($data){
         return array(
             true,

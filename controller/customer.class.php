@@ -15,37 +15,23 @@ class Customer extends Controller {
     public function create() {
         if ($_POST) {
             $data = $this->checkVars($_POST);
-
+            var_dump($_POST);
+            exit;
             if(in_array(false, $data)){
                 $this->view->check = $data;
                 $this->view->data = $_POST;
             } else {
-                //data opslaan!
+                ///!!!!!
+                $this->model->create(`idUser`, `AccountType`, `CompanyName`, `KvKNumber`, `KvKDocument`, `PaymentPreference`);
             }
 
             }
         $this->view->action = "create";
-        $this->view->render(get_class($this), 'settings');
+        $this->view->render(get_class($this), 'create');
     }
     
     private function checkVars($data){
-        return array(
-            $this->checkInput($data["AccountType"], "I"),//0
-            $this->checkInput($data["FirstName"], "S"),//1
-            true,//$this->checkInput($data["Insertion"], "S"),2
-            $this->checkInput($data["LastName"], "S"),//3
-            $this->checkInput($data["Gender"], "I"),//4
-            $this->checkInput($data["BirthDate"], "D"),//5
-            ($this->checkInput($data["Password"], "S") && $data['Password'] == $data['RepeatPassword'] ),//6
-            ($this->checkInput($data["RepeatPassword"], "S") && $data['Password'] == $data['RepeatPassword'] ),//7
-            $this->checkInput($data["huisnummer"], "I"),//8
-            true,//$this->checkInput($data["addition"], "S"),9
-            $this->checkInput($data["postcode"], "P"),//10
-            $this->checkInput($data["street"], "S"),//11
-            $this->checkInput($data["city"], "S"),//12
-            $this->checkInput($data["state"], "S"),//13
-            $this->checkInput($data["phone"], "I"),//14
-            $this->checkInput($data["email"], "E"),//15
+        return array(        
             ($data["AccountType"] == 1 ? $this->checkInput($data["CompanyName"], "S") : true),//16
             ($data["AccountType"] == 1 ? $this->checkInput($data["KvKNumber"], "I") : true),//17
             $this->checkInput($data["PaymentPreference"], "I"),//18
@@ -86,6 +72,6 @@ class Customer extends Controller {
             2,//18
             "NLABNA0609481916");
         $this->view->action = "edit";
-        $this->view->render(get_class($this), 'settings');
+        $this->view->render(get_class($this), 'create');
     }
 }

@@ -6,11 +6,5 @@ class Model {
         $this->pdo = new Database();
     }
 
-    public function getCats() {
-        $sql = "SELECT * FROM `cat`";
-        $sth = $this->pdo->prepare($sql);
-        $sth->execute();
-        return $sth->fetchall(PDO::FETCH_ASSOC);
-    }
 
 }
