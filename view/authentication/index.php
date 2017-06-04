@@ -1,4 +1,4 @@
-<form class="form-horizontal" action="login" method="Post">
+<form class="form-horizontal" action="/authentication/login" method="Post">
     <div class="form-group">
         <label class="col-sm-4 control-label">Email</label>
         <?php $this->input('text', 'email', true, null, true); ?>
